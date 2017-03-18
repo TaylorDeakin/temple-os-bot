@@ -5,6 +5,13 @@ appState.json
 
 # Created by https://www.gitignore.io/api/node,windows
 
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
+
 ### Node ###
 # Logs
 logs
@@ -87,4 +94,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/node,windows
+# End of https://www.gitignore.io/api/code.node,windows

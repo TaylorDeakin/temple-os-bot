@@ -6,8 +6,9 @@ const getSenderName = require('./getSenderName');
 const tryUnderstandChat = (api, event, stopListening) => {
     /* Someone told me to leave */
     if(phraseMatcher(event.body, [['go away', 'go to bed', 'shutdown', 'logout'], words.me])) {
-        api.sendMessage(`Fine, I'll go to bed.`, event.threadID);
-        api.sendMessage(`Night!`, event.threadID);
+        api.sendMessage(`Fine, I'll go to bed.`, event.threadID, () => {
+            api.sendMessage(`Night!`, event.threadID);
+        });
         return stopListening();
     }
     /* Someone said hi to me */
