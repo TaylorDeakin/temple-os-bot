@@ -7,7 +7,7 @@ const words = {
         'Hello',
         'Yo',
         'Kia ora',
-        `What's up`,
+        'What\'s up',
         'Whats up',
     ],
     me: [
