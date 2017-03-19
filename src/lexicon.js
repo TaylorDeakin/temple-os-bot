@@ -32,7 +32,7 @@ const lexicon = [
     /* Someone asks what the time is */
     {
         questionParts: [
-            ['Whats', 'Do you know'],
+            ['Whats', 'what', 'Do you know'],
             ['time?', 'time'],
         ],
         answer: (event, api) => {
@@ -41,7 +41,7 @@ const lexicon = [
                 hour: 'numeric',
                 minute: 'numeric',
             });
-            api.sendMessage(`Right now it's ${time}.`, event.threadID);
+            api.sendMessage(`Right now it's ${time}`, event.threadID);
         },
     },
     /* Someone says hi to me */
@@ -53,6 +53,18 @@ const lexicon = [
         answer: (event, api) => {
             getSenderName(api, event).then((name) => {
                 api.sendMessage(`Hey ${name}`, event.threadID);
+            });
+        },
+    },
+    /* Someone thanks me */
+    {
+        questionParts: [
+            ['thanks', 'cheers', 'thnx', 'chur'],
+            words.me,
+        ],
+        answer: (event, api) => {
+            getSenderName(api, event).then((name) => {
+                api.sendMessage(`You're welcome ${name}`, event.threadID);
             });
         },
     },

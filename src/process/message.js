@@ -20,7 +20,7 @@ const processMessage = (event, api, stopListening) => {
             return `(${escapedQuestionPartOptions.join('|')})`;
         });
         /* Either a non whitespace character or the end of the line before and after the regex */
-        return `(\\W+|^)${joinedQParts.join('.+')}(\\W+|$)`;
+        return `(\\W+|^)${joinedQParts.join('(\\W+|\\W+.+\\W+)')}(\\W+|$)`;
     });
 
     /* Iterate over each regular expression checking if it matches */
