@@ -12,10 +12,10 @@ login({appState: JSON.parse(fs.readFileSync('config/appState.json', 'utf8'))}, (
     const stopListening = api.listen((err, event) => {
         if(err) return console.error(err);
 
+        tryUnderstandChat(api, event, stopListening);
+
         api.markAsRead(event.threadID, err => {
             if(err) console.error(err);
         });
-
-        tryUnderstandChat(api, event, stopListening);
     });
 });

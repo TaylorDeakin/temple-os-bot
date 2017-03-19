@@ -21,9 +21,10 @@
  */
 const phraseMatcher = (msg, phraseGroups) => {
   const matchedPhraseGroups = phraseGroups.filter(phraseGroup =>
-    phraseGroup.filter(phrase =>
-      msg.toLowerCase().includes(phrase.toLowerCase())
-    ).length > 0);
+    phraseGroup.filter(phrase => {
+      const regex = `(\\W|^)${phrase.toLowerCase()}(\\W|$)`;
+      return new RegExp(regex, 'gi').test(msg);
+    }).length > 0);
   
   return matchedPhraseGroups.length === phraseGroups.length;
 };

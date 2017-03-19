@@ -16,6 +16,7 @@
     "url": "https://github.com/WillMoreland/temple-os-bot/issues"
   },
   "dependencies": {
-    "facebook-chat-api": "^1.3.0"
+    "facebook-chat-api": "github:schmavery/facebook-chat-api",
+    "node-fetch": "^1.6.3"
   }
 }
