@@ -19,7 +19,7 @@ const lexicon = [
     /* Go away */
     {
         questionParts: [
-            ['go away', 'go to bed', 'shutdown', 'logout', 'fuck off'],
+            ['go away', 'go to bed', 'shutdown', 'logout', 'fuck off', 'make yourself scarce'],
             words.me,
         ],
         answer: (event, api, stopListening) => {
