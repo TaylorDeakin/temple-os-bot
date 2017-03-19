@@ -10,4 +10,5 @@ This is still in early development, so I have no idea why you'd want to use it y
 2. Clone this repo.
 3. Run `npm install` to install the node dependencies.
 4. Fill out `config/config.js` with your Facebook username and password.
-5. Run `node ./index.js` to run the bot. It should connect to FB and listen to chats.
+5. Run `node ./src/getAppState.js` to sign into Facebook and save the app state.
+6. Run `node ./index.js` to run the bot. It should connect to FB, listen to chats that it is in and respond accordingly.
