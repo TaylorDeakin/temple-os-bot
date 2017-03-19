@@ -19,7 +19,8 @@ const processMessage = (event, api, stopListening) => {
                 removeUnwantedChars(escapeSpecialChars(p)));
             return `(${escapedQuestionPartOptions.join('|')})`;
         });
-        return `(.*)${joinedQParts.join('.+')}(.*)`;
+        /* Either a non whitespace character or the end of the line before and after the regex */
+        return `(\\W+|^)${joinedQParts.join('.+')}(\\W+|$)`;
     });
 
     /* Iterate over each regular expression checking if it matches */

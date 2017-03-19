@@ -44,6 +44,23 @@ const lexicon = [
             api.sendMessage(`Right now it's ${time}.`, event.threadID);
         },
     },
+    /* Someone says hi to me */
+    {
+        questionParts: [
+            ['Hey', 'Hi', 'Sup', 'Yo', 'Kia Ora', 'Hows it going'],
+            words.me,
+        ],
+        answer: (event, api) => {
+            getSenderName(api, event).then((name) => {
+                api.sendMessage(`Hey ${name}`, event.threadID);
+            });
+        },
+    },
+    /* Someone says marco */
+    {
+        questionParts: [['marco']],
+        answer: (event, api) => api.sendMessage('Polo!', event.threadID),
+    },
     /* Someone asks a question I don't know the answer to */
     {
         questionParts: [
@@ -55,17 +72,6 @@ const lexicon = [
                 fetch(`https://8ball.delegator.com/magic/JSON/${encodeURIComponent(event.body)})`)
                     .then(res => res.json())
                     .then(res => api.sendMessage(`It says "${res.magic.answer}"`, event.threadID));
-            });
-        },
-    },
-    /* Someone says hi */
-    {
-        questionParts: [
-            ['Hey', 'Hi', 'Sup', 'Yo', 'Kia Ora'],
-        ],
-        answer: (event, api) => {
-            getSenderName(api, event).then((name) => {
-                api.sendMessage(`Hey ${name}?`, event.threadID);
             });
         },
     },
