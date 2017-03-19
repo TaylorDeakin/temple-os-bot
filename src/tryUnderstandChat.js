@@ -28,7 +28,7 @@ const tryUnderstandChat = (api, event, stopListening) => {
         });
         return stopListening();
     /* Someone asked what the time is */
-    } else if(phraseMatcher(event.body, [['time?']])) {
+    } else if(phraseMatcher(event.body, [words.me, ['time'], ['?']])) {
         const time = new Date().toLocaleTimeString('en-US', {
             hour12: false, 
             hour: 'numeric', 
